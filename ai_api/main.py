@@ -13,6 +13,7 @@ API_KEY = os.getenv("GEMINI_API_KEY")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -22,7 +23,7 @@ MODEL_ID = "gemini-2.5-pro"
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 @app.post("/analyze")
-async def analyze_image(file: UploadFile = File(...)):
+async def analyze_image(image: UploadFile = File(...)):
     try:
      
         image_bytes = await file.read()
