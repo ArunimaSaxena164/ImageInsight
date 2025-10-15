@@ -41,9 +41,9 @@ function App() {
     formData.append("image", image);
 
     try {
-      const res = await axios.post("http://localhost:5000/analyze", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/analyze`, formData, {
+  headers: { "Content-Type": "multipart/form-data" },
+});
 
       setDescription(res.data.description || "No description found.");
       setExtractedText(res.data.extracted_text || "No text found.");
