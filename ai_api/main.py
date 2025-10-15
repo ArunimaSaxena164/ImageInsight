@@ -27,11 +27,12 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 async def analyze_image(image: UploadFile = File(...)):
     try:
      
-        image_bytes = await image.read()
-        image = Image.open(io.BytesIO(image_bytes))
+        upload_file = image
+        image_bytes = await upload_file.read()
+        pil_image = Image.open(io.BytesIO(image_bytes))
 
         image_base64 = base64.b64encode(image_bytes).decode("utf-8")
-        mime_type = image.content_type
+        mime_type = upload_file.content_type
         model = genai.GenerativeModel(MODEL_ID)
         prompt = "Describe the objects and scene in this image in detail."
         gemini_response = model.generate_content([ 
