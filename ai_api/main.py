@@ -26,7 +26,7 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 async def analyze_image(image: UploadFile = File(...)):
     try:
      
-        image_bytes = await file.read()
+        image_bytes = await image.read()
         image = Image.open(io.BytesIO(image_bytes))
 
        
