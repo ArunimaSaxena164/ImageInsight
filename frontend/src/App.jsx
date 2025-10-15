@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className="title">AI Image Analyzer</h1>
+      <h1 className="title">Image Insight</h1>
 
       <div className="upload-box">
         <label htmlFor="fileInput" className="custom-file-button">

@@ -6,6 +6,7 @@ import google.generativeai as genai
 import pytesseract
 from dotenv import load_dotenv
 import os
+import base64
 
 load_dotenv()
 app = FastAPI()
@@ -29,10 +30,16 @@ async def analyze_image(image: UploadFile = File(...)):
         image_bytes = await image.read()
         image = Image.open(io.BytesIO(image_bytes))
 
+        image_base64 = base64.b64encode(image_bytes).decode("utf-8")
        
         model = genai.GenerativeModel(MODEL_ID)
         prompt = "Describe the objects and scene in this image in detail."
-        gemini_response = model.generate_content([prompt, image])
+        gemini_response = model.generate_content([ {
+                "inline_data": {
+                    "mime_type": image.content_type,
+                    "data": image_base64
+                }
+            }, image])
         description = gemini_response.text or "No description generated."
 
         
