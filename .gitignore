@@ -1,0 +1,22 @@
+# ---------- Frontend ----------
+frontend/node_modules/
+frontend/dist/
+logs
+*.log
+.vscode/*
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---------- Backend ----------
+backend/node_modules/
+backend/uploads/
+
+# ---------- AI API ----------
+ai_api/venv/
+ai_api/.env
+ai_api/__pycache__/
