@@ -31,20 +31,22 @@ async def analyze_image(image: UploadFile = File(...)):
         image = Image.open(io.BytesIO(image_bytes))
 
         image_base64 = base64.b64encode(image_bytes).decode("utf-8")
-       
+        mime_type = image.content_type
         model = genai.GenerativeModel(MODEL_ID)
         prompt = "Describe the objects and scene in this image in detail."
-        gemini_response = model.generate_content([ {
+        gemini_response = model.generate_content([ 
+            {
                 "inline_data": {
-                    "mime_type": image.content_type,
+                    "mime_type": mime_type,
                     "data": image_base64
                 }
-            }, image])
+            }, 
+            prompt
+        ])
         description = gemini_response.text or "No description generated."
 
         
-        text = pytesseract.image_to_string(image)
-        text = text.strip() if text else "No text found."
+        text = pytesseract.image_to_string(pil_image).strip() or "No text found."
 
         
         return {
