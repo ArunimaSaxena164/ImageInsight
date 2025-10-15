@@ -7,13 +7,11 @@ AI Image Analyzer is a web application that allows users to upload an image and 
 
 This project demonstrates the integration of AI and image processing in a user-friendly interface.
 
----
 
 ## Demo
 
 [**Live Demo**](https://image-insight-rouge.vercel.app/)
 
----
 
 ## Features
 
@@ -22,7 +20,6 @@ This project demonstrates the integration of AI and image processing in a user-f
 - Extract text from images.
 - Responsive design with clean UI.
 
----
 
 ## Frontend
 
@@ -31,14 +28,12 @@ This project demonstrates the integration of AI and image processing in a user-f
 - Displays results dynamically without page reload.
 - Uses **ReactMarkdown** to render AI-generated descriptions.
 
----
 
 ## Backend
 
 - **Current:** FastAPI backend deployed on [Render](https://imageinsight-aiapi.onrender.com). Handles image analysis and text extraction.  
 - **Future Scope:** Node.js + Express backend is included in the repo for potential features like authentication, database integration, and enhanced API functionality.
 
----
 
 ## Tech Stack
 
@@ -47,7 +42,6 @@ This project demonstrates the integration of AI and image processing in a user-f
 - **AI & OCR:** Google Gemini AI (via `google-generativeai`), Pytesseract
 - **Deployment:** Frontend on Vercel, Backend on Render
 
----
 
 ## Future Enhancements
 
@@ -56,7 +50,3 @@ This project demonstrates the integration of AI and image processing in a user-f
 - Extend backend with Node.js/Express for advanced API features.  
 - Multi-language support for extracted text and descriptions.
 
----
-
-Developed by **Arunima Saxena**  
-For queries or demo requests, feel free to contact via LinkedIn or email.
