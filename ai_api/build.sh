@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -o errexit
 
-echo "Updating packages and installing Tesseract..."
-apt-get update
-apt-get install -y tesseract-ocr
-echo "Tesseract installed successfully."
+# Install dependencies
+pip install -r requirements.txt
