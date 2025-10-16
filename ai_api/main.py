@@ -22,6 +22,7 @@ app.add_middleware(
 genai.configure(api_key=API_KEY)
 MODEL_ID = "gemini-2.5-pro"  
 #pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 @app.post("/analyze")
 async def analyze_image(image: UploadFile = File(...)):
